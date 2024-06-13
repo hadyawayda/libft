@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hawayda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 19:25:10 by hawayda           #+#    #+#             */
-/*   Updated: 2024/06/11 19:25:11 by hawayda          ###   ########.fr       */
+/*   Created: 2024/06/13 00:30:51 by hawayda           #+#    #+#             */
+/*   Updated: 2024/06/13 00:30:53 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int	result;
+	int	sign;
 
-	i = 0;
-	while (i < n)
-	{
-		((char *)dst)[i] = ((char *)src)[i];
-		i++;
-	}
-	return (dst);
+	result = 0;
+	sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign *= -1;
+	while (*str >= '0' && *str <= '9')
+		result = result * 10 + *str++ - '0';
+	return (result * sign);
 }

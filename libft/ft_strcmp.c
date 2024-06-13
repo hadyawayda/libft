@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalpha.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hawayda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 17:19:48 by hawayda           #+#    #+#             */
-/*   Updated: 2024/06/10 17:19:50 by hawayda          ###   ########.fr       */
+/*   Created: 2024/06/12 23:59:28 by hawayda           #+#    #+#             */
+/*   Updated: 2024/06/12 23:59:28 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "isalpha.h"
+#include "libft.h"
 
-int	isalpha_custom(int c) {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) {
-		return 1;
-	}
-	
-	return 0;
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

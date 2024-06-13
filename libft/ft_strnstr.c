@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hawayda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 19:25:10 by hawayda           #+#    #+#             */
-/*   Updated: 2024/06/11 19:25:11 by hawayda          ###   ########.fr       */
+/*   Created: 2024/06/13 00:07:01 by hawayda           #+#    #+#             */
+/*   Updated: 2024/06/13 00:07:02 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strnstr(const char *str1, const char *str2, size_t len)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (i < n)
+	if (str2[0] == '\0')
+		return ((char *)str1);
+	while (str1[i] != '\0')
 	{
-		((char *)dst)[i] = ((char *)src)[i];
+		if (str2[0] == str1[i])
+		{
+			j = 0;
+			while (str2[j] != '\0' && i + j < len)
+			{
+				if (str2[j] != str1[i + j])
+					break ;
+				j++;
+			}
+			if (str2[j] == '\0')
+				return ((char *)&str1[i]);
+		}
 		i++;
 	}
-	return (dst);
+	return ((char *) NULL);
 }
