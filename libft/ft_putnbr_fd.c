@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hawayda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 01:05:46 by hawayda           #+#    #+#             */
-/*   Updated: 2024/06/13 01:05:47 by hawayda          ###   ########.fr       */
+/*   Created: 2024/06/14 04:14:27 by hawayda           #+#    #+#             */
+/*   Updated: 2024/06/14 04:14:29 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	char	*dup;
+	unsigned int	nbr;
 
-	dup = (char *)malloc((ft_strlen(src) + 1));
-	ft_memcpy(dup, src, ft_strlen(src) + 1);
-	return (dup);
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr = (unsigned int)(nb * -1);
+	}
+	else
+		nbr = (unsigned int)nb;
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((char)(nbr % 10 + 48), fd);
 }

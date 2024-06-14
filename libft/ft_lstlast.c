@@ -1,22 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hawayda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 01:05:46 by hawayda           #+#    #+#             */
-/*   Updated: 2024/06/13 01:05:47 by hawayda          ###   ########.fr       */
+/*   Created: 2024/06/14 04:15:30 by hawayda           #+#    #+#             */
+/*   Updated: 2024/06/14 04:15:31 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-char	*ft_strdup(const char *src)
-{
-	char	*dup;
-
-	dup = (char *)malloc((ft_strlen(src) + 1));
-	ft_memcpy(dup, src, ft_strlen(src) + 1);
-	return (dup);
-}
