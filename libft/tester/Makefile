@@ -8,10 +8,11 @@ MANDATORY		= memset bzero memcpy memmove memchr memcmp strlen isalpha isdigit is
 				atoi calloc strdup substr strjoin strtrim split itoa strmapi putchar_fd putstr_fd \
 				putendl_fd putnbr_fd striteri
 BONUS			= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear lstiter lstmap
-VSOPEN			= $(addprefix vs, $(MANDATORY)) $(addprefix vs, $(BONUS))
+VSOPEN		= $(addprefix vs, $(MANDATORY)) $(addprefix vs, $(BONUS))
 
 CC		= clang++
-CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH) 
+CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I $(LIBFT_PATH) -I /usr/include/c++/11 -I /usr/include/x86_64-linux-gnu/c++/11 -L /usr/lib/gcc/x86_64-linux-gnu/11
+
 UNAME = $(shell uname -s)
 ifeq ($(UNAME), Linux)
 	VALGRIND = valgrind -q --leak-check=full
