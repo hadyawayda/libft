@@ -47,29 +47,27 @@ BONUS_SRCS =  ft_lstnew.c \
               ft_lstiter.c \
               ft_lstmap.c \
 
-OBJS = $(SRCS:.c=.o)
+OBJS =			$(SRCS:.c=.o)
 
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+BONUS_OBJS =	$(BONUS_SRCS:.c=.o)
 
-all: $(NAME)
+all:			$(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME):		$(OBJS)
+				$(AR) $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:		$(OBJS) $(BONUS_OBJS)
+			$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o:		%.c
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+			rm -f $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:		clean
+			rm -f $(NAME)
 
-re:
-	fclean all
+re:			fclean all
        
-.PHONY:
-	all clean fclean re bonus
+.PHONY:		all bonus clean fclean re
