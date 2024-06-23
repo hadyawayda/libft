@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hawayda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 04:14:17 by hawayda           #+#    #+#             */
-/*   Updated: 2024/06/14 04:14:18 by hawayda          ###   ########.fr       */
+/*   Created: 2024/06/16 20:29:03 by hawayda           #+#    #+#             */
+/*   Updated: 2024/06/16 20:29:04 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	ft_putendl_fd(char *s, int fd)
-{
-	if (s != NULL)
-	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
-	}
-}
+# include <stdlib.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include "libft/libft.h"
+
+int	ft_printf(const char *str, ...);
+
+#endif

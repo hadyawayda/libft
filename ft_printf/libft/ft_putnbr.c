@@ -19,6 +19,8 @@ int	nbr_len(int nb)
 	length = 0;
 	if (nb == -2147483648)
 		return (11);
+	if (nb == 0)
+		length++;
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -34,6 +36,9 @@ int	nbr_len(int nb)
 
 int	ft_putnbr(int nb)
 {
+	int	length;
+
+	length = nbr_len(nb);
 	if (nb == -2147483648)
 	{
 		ft_putchar('-');
@@ -54,5 +59,5 @@ int	ft_putnbr(int nb)
 	{
 		ft_putchar(nb + '0');
 	}
-	return (nbr_len(nb));
+	return (length);
 }

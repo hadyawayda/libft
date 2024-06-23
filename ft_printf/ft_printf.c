@@ -10,25 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-// convert to char or string and use putstr or putchar to print it
 void	visualize(char c, int *count, va_list *args)
 {
 	if (c == 'c')
 		*count += ft_putchar(va_arg(*args, int));
 	if (c == 's')
 		*count += ft_putstr(va_arg(*args, char *));
-	if (c == 'd' || c == 'i')
-		*count += ft_putnbr(va_arg(*args, int));
 	if (c == 'u')
 		*count += ft_putunbr(va_arg(*args, unsigned int));
+	if (c == 'd' || c == 'i')
+		*count += ft_putnbr(va_arg(*args, int));
 	if (c == 'p')
-		*count += ft_putptr(va_arg(*args, unsigned long long));
-	if (c == 'x')
-		*count += ft_putchar(va_arg(*args, unsigned int));
-	if (c == 'X')
-		*count += ft_putchar(va_arg(*args, unsigned int));
+		*count += ft_putptr(va_arg(*args, unsigned long long *));
+	if (c == 'x' || c == 'X')
+		*count += ft_puthex(va_arg(*args, unsigned int), c);
 }
 
 int	ft_printf(const char *str, ...)
@@ -37,6 +34,8 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	int		count;
 
+	i = 0;
+	count = 0;
 	va_start(args, str);
 	while (str[i])
 	{

@@ -1,6 +1,7 @@
 **/.vscode/
 /.vscode/
 /tester/
+/printfTester/
 *.out
 *.o
 *.a

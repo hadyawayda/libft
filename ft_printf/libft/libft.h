@@ -24,7 +24,8 @@ typedef struct s_list
 
 int				ft_putnbr(int nb);
 int				ft_putunbr(unsigned int nb);
-int				ft_putptr(unsigned long long nb);
+int				ft_putptr(unsigned long long *ptr);
+int				ft_puthex(unsigned long nb, char format);
 int				ft_putchar(char c);
 int				ft_putstr(char *s);
 int				ft_isascii(int c);

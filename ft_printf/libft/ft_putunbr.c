@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 int	ft_putunbr(unsigned int nb)
 {
+	int	length;
+
+	length = 0;
 	if (nb >= 10)
 		length += ft_putunbr(nb / 10);
 	ft_putchar((nb % 10) + '0');

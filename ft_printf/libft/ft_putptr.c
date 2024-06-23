@@ -12,39 +12,33 @@
 
 #include "libft.h"
 
-int	ptr_len(int nb)
+static int	rec_print(unsigned long n, const char *base)
 {
-	int	length;
+	int	len;
 
-	length = 0;
-	if (ptr == 0)
-		return (1);
-	while (ptr > 0)
-	{
-		ptr = ptr / 16;
-		length++;
-	}
-	return (length);
+	len = 0;
+	if (n > (ft_strlen(base) - 1))
+		len += rec_print(n / ft_strlen(base), base);
+	len += ft_putchar(*(base + (n % ft_strlen(base))));
+	return (len);
 }
 
-int	ft_putptr(unsigned long long ptr)
+int	ft_putptr(unsigned long long *ptr)
 {
-	char	*hex_digits;
-	int		length;
+	unsigned long	n;
+	const char		*base;
+	int				len;
 
-	length = 0;
-	hex_digits = "0123456789abcdef";
-	if (ptr == 0)
+	len = 0;
+	n = (unsigned long)ptr;
+	base = "0123456789abcdef";
+	if (ptr == NULL)
 	{
-		ft_putchar('0');
-		return (1);
+		ft_putstr("(nil)");
+		len += 5;
+		return (len);
 	}
-	ft_putchar('0');
-	ft_putchar('x');
-	length += 2;
-	if (ptr >= 16)
-		length += ft_putptr(ptr / 16);
-	ft_putchar(hex_digits[ptr % 16]);
-	length += 1;
-	return (length);
+	len = ft_putstr("0x");
+	len += rec_print(n, base);
+	return (len);
 }
