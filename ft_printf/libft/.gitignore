@@ -1,7 +1,0 @@
-**/.vscode/
-/.vscode/
-/tester/
-*.out
-*.o
-*.a
-main.c
