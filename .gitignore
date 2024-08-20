@@ -1,5 +1,6 @@
 **/.vscode/
 /.vscode/
+/tester/
 *.out
 *.o
 *.a
